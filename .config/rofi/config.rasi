@@ -1,0 +1,112 @@
+configuration {
+    scroll-method: 1;
+    scrollbar: true;
+    separator-style: "none";
+    show-icons: true;
+    display-run: "Run ";
+    display-drun: "Open ";
+    display-emoji: "Emoji ";
+    drun-display-format: "{icon} {name}";
+    modi: "run,drun,emoji";
+}
+
+@import "~/.config/colors/colors.rasi"
+
+* {
+    font: "JetbrainsMono Nerd Font 15";
+    background-color: transparent;
+    text-color: @foreground;
+}
+
+#window {
+    background-color: @background;
+    border: 3;
+    border-radius: 6;
+    border-color: @bordercolor;
+    padding: 15;
+    width: 600px;
+}
+
+#mainbox {
+    background-color: transparent;
+    spacing: 10px;
+}
+
+#listview {
+    lines: 6;
+    fixed-height: 0;
+    border: 0px;
+    spacing: 8px;
+    padding: 2px 0px 0px;
+    background-color: transparent;
+}
+
+#element {
+    border: 0;
+    background-color: transparent;
+    border-radius: 8px;
+    padding: 6px;
+}
+
+#element.normal.normal {
+    background-color: transparent;
+    text-color: @foreground;
+}
+
+#element.alternate.normal {
+    background-color: transparent;
+    text-color: @foreground;
+}
+
+#element.selected.normal {
+    background-color: rgba(88, 91, 112, 0.85);
+    text-color: @foreground;
+}
+
+element-text,
+element-icon {
+    size: 45px;
+    background-color: inherit;
+    text-color: inherit;
+}
+
+#scrollbar {
+    width: 2px;
+    border: 0;
+    handle-width: 8px;
+    padding: 0;
+    background-color: transparent;
+    handle-color: @select;
+}
+
+#inputbar {
+    children: [ prompt, textbox-prompt-colon, entry ];
+    spacing: 0;
+    padding: 15px;
+    border: 3px;
+    border-radius: 6px;
+    border-color: @bordercolor;
+    background-color: rgba(69, 71, 90, 0.65);
+}
+
+#prompt {
+    spacing: 0;
+    background-color: transparent;
+    text-color: @foreground;
+}
+
+#textbox-prompt-colon {
+    expand: false;
+    str: ">";
+    margin: 0px 0.3em 0em 0em;
+    background-color: transparent;
+    text-color: @foreground;
+}
+
+#entry {
+    spacing: 0;
+    background-color: transparent;
+    placeholder: "Search wallpaper";
+    placeholder-color: rgba(205, 214, 244, 0.55);
+    text-color: @foreground;
+}

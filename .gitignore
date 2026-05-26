@@ -1,0 +1,4 @@
+.config/private/*.env
+*.swp
+*.swo
+.DS_Store
