@@ -2,16 +2,10 @@
 
 set -euo pipefail
 
-script_dir="$(CDPATH= cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
-wallpapers_dir="$script_dir/wallpapers"
+wallpapers_dir="$HOME/Pictures/wallpaper/hyprland"
 cache_dir="$HOME/.cache/awww"
 state_file="$cache_dir/last_wallpaper"
-
-if [[ ! -d "$wallpapers_dir" ]]; then
-    wallpapers_dir="$HOME/Pictures/wallpaper/hyprland"
-fi
-
-default_wallpaper="$wallpapers_dir/wallhaven-6o6orw.png"
+default_wallpaper="$HOME/Pictures/wallpaper/hyprland/wallhaven-6o6orw.png"
 
 wallpaper_path=""
 

@@ -2,12 +2,7 @@
 
 set -euo pipefail
 
-script_dir="$(CDPATH= cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
-wallpapers_dir="$script_dir/wallpapers"
-
-if [[ ! -d "$wallpapers_dir" ]]; then
-    wallpapers_dir="$HOME/Pictures/wallpaper/hyprland"
-fi
+wallpapers_dir="$HOME/Pictures/wallpaper/hyprland"
 
 mapfile -t wallpapers < <(
     find "$wallpapers_dir" -maxdepth 1 -type f \
