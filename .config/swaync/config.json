@@ -1,16 +1,19 @@
 {
     "$schema": "/etc/xdg/swaync/configSchema.json",
-    "positionX": "right",
+    "positionX": "center",
     "positionY": "top",
     "cssPriority": "user",
     "layer": "overlay",
     "control-center-layer": "top",
     "layer-shell": true,
-    "control-center-width": 400,
-    "control-center-height": 850,
-    "control-center-margin-top": 10,
+    "layer-shell-cover-screen": false,
+    "control-center-positionX": "center",
+    "control-center-positionY": "top",
+    "control-center-width": 860,
+    "control-center-height": 430,
+    "control-center-margin-top": 70,
     "control-center-margin-bottom": 10,
-    "control-center-margin-right": 10,
+    "control-center-margin-right": 0,
     "control-center-margin-left": 0,
     "notification-window-width": 380,
     "notification-icon-size": 50,
@@ -39,6 +42,7 @@
         "mpris",
         "volume",
         "backlight",
+        "slider#kbd_backlight",
         "dnd",
         "title",
         "notifications"
@@ -59,6 +63,17 @@
         "backlight": {
             "label": "󰃟 ",
             "device": "amdgpu_bl1"
+        },
+        "slider#kbd_backlight": {
+            "label": "󰛨 ",
+            "cmd_getter": "brightnessctl -d tpacpi::kbd_backlight get",
+            "cmd_setter": "brightnessctl -d tpacpi::kbd_backlight set $value",
+            "min": 0,
+            "max": 2,
+            "min_limit": 0,
+            "max_limit": 2,
+            "value_scale": 0,
+            "animation-type": "slide_up"
         },
         "dnd": {
             "text": "Do Not Disturb"

@@ -2,8 +2,8 @@
 
 * {
     outline: none;
-    font-family: "Segoe UI Variable Static Text";
-    font-size: 18px;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 15px;
     text-shadow: none;
     color: @foreground;
     background-color: transparent;
@@ -11,18 +11,20 @@
 }
 
 .control-center {
-    background-color: alpha(@background, 0.8);
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.65);
-    padding: 5px;
+    background-color: alpha(@background, 0.74);
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.45);
+    padding: 10px;
+    border-radius: 28px;
+    border: 1px solid alpha(@select, 0.55);
 }
 
 .control-center .notification-row .notification-background {
-    border-radius: 15px;
+    border-radius: 18px;
     margin-top: 5px;
 }
 
 .notification {
-    background-color: alpha(@background, 0.8);
+    background-color: alpha(@background, 0.82);
 }
 
 .notification > *:last-child > * {
@@ -107,7 +109,7 @@ tooltip {
 
 .widget-buttons-grid {
     font-size: 1rem;
-    padding: 20px 20px 10px;
+    padding: 6px 8px 10px;
     margin: unset;
 }
 
@@ -169,9 +171,9 @@ tooltip {
 }
 
 .widget-volume {
-    padding: 6px 5px 5px 5px;
+    padding: 8px 8px 4px 8px;
     margin: unset;
-    font-size: 1.3rem;
+    font-size: 1.05rem;
 }
 
 .widget-volume > box > button {
@@ -184,9 +186,31 @@ tooltip {
 }
 
 .widget-backlight {
-    padding: 0 0 3px 16px;
+    padding: 0 0 4px 16px;
     margin: unset;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+}
+
+.widget-slider-kbd_backlight {
+    padding: 0 0 4px 16px;
+    margin: unset;
+    font-size: 1.05rem;
+}
+
+.widget-slider-kbd_backlight button,
+.widget-slider-kbd_backlight scale trough,
+.widget-slider-kbd_backlight slider {
+    transition: all .25s ease;
+}
+
+.widget-slider-kbd_backlight scale trough {
+    min-height: 8px;
+    min-width: 70px;
+    background-color: @gray;
+}
+
+.widget-slider-kbd_backlight trough highlight {
+    background: @purple;
 }
 
 .widget-dnd {
@@ -218,11 +242,11 @@ tooltip {
 .widget-title {
     margin: unset;
     font-weight: bold;
-    padding: 15px;
+    padding: 10px 12px 12px;
 }
 
 .widget-title > label {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
 }
 
 .widget-title > button {
