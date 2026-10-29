@@ -1,24 +1,16 @@
-return {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
-    config = function()
-        require("nvim-treesitter").setup({
-            auto_install = true,
-            ensure_installed = {
-                "bash",
-                "lua",
-                "c",
-                "cpp",
-                "python",
-                "javascript",
-                "html",
-                "css",
-                "markdown",
-                "markdown_inline",
-            },
-            highlight = { enable = true },
-            indent = { enable = true },
-        })
-    end
+-- Customize Treesitter
+
+---@type LazySpec
+return {
+  "nvim-treesitter/nvim-treesitter",
+  opts = function(_, opts)
+    -- add more things to the ensure_installed table protecting against community packs modifying it
+    opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
+      "lua",
+      "vim",
+      -- add more arguments for adding more treesitter parsers
+    })
+  end,
 }

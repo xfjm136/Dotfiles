@@ -1,4 +1,3 @@
-/* @import "$HOME/.config/colors/colors.css" */
 @import "../colors/colors.css";
 
 @keyframes glowing {
@@ -24,14 +23,14 @@
 
 window {
     background: rgba(0, 0, 0, 0.3);
-    font-size: 0px;
+    font-size: 0;
 }
 
 button {
     background: transparent;
     outline-style: none;
     border: none;
-    border-width: 0px;
+    border-width: 0;
     background-repeat: no-repeat;
     background-position: center;
     background-size: 50%;

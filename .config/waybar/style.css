@@ -1,9 +1,8 @@
-/* @import "$HOME/.config/colors/colors.css" */
 @import "../colors/colors.css";
 
 * {
     font-family: "JetBrainsMono Nerd Font";
-    font-size: 13px;
+    font-size: 14px;
     font-weight: bold;
     background-color: transparent;
     border-radius: 5px;
@@ -17,47 +16,51 @@ tooltip {
 
 #waybar {
     background: alpha(@background, 0.6);
-    border-radius: 0;
+    border-radius: 12px;
 }
 
 #workspaces {
-    margin: 1px 0;
+    margin: 3px 0;
 }
 
 #workspaces button {
     color: @foreground;
     border: none;
-    padding: 0 5px;
+    padding: 2px 8px;
 }
+
 #workspaces button:hover {
     color: @pink;
     transition: none;
     border-bottom: 1px solid @pink;
-    padding: 0 8px;
+    padding: 2px 10px;
 }
 
 #workspaces button.active {
     color: @pink;
     border: 2px solid @pink;
-    padding: 0 8px;
+    padding: 2px 10px;
     margin: 0 2px;
 }
 
 #workspaces button.urgent {
     background-color: @red;
-    padding: 0 8px;
+    padding: 2px 10px;
 }
 
 #custom-power,
+#window,
 #tray,
 #bluetooth,
 #network,
+#cpu,
+#memory,
 #battery,
 #pulseaudio,
 #clock {
     color: @foreground;
-    margin: 1px 0;
-    padding: 0 10px;
+    margin: 2px 0;
+    padding: 2px 10px;
 }
 
 #custom-power:hover,
@@ -77,6 +80,14 @@ tooltip {
     color: @green;
 }
 
+#cpu {
+    color: @yellow;
+}
+
+#memory {
+    color: @green;
+}
+
 #battery {
     color: @purple;
 }
@@ -85,12 +96,36 @@ tooltip {
     color: @orange;
 }
 
+#window {
+    color: @foreground;
+    padding: 2px 14px 2px 8px;
+}
+
 #clock {
-    margin-right: 10px;
     color: @blue;
+    padding: 2px 16px;
 }
 
 #custom-power {
     margin-left: 10px;
-    padding: 0px 10px 0 15px;
+    padding: 2px 10px 2px 15px;
+}
+
+/* Hyprland 0.57 workspace buttons: Lua dispatch, event-driven active state. */
+#custom-workspace-1, #custom-workspace-2, #custom-workspace-3,
+#custom-workspace-4, #custom-workspace-5 {
+    color: @foreground;
+    border: 2px solid transparent;
+    padding: 2px 8px;
+}
+#custom-workspace-1:hover, #custom-workspace-2:hover, #custom-workspace-3:hover,
+#custom-workspace-4:hover, #custom-workspace-5:hover {
+    color: @pink;
+}
+#custom-workspace-1.active, #custom-workspace-2.active, #custom-workspace-3.active,
+#custom-workspace-4.active, #custom-workspace-5.active {
+    color: @pink;
+    border: 2px solid @pink;
+    padding: 2px 10px;
+    margin: 0 2px;
 }

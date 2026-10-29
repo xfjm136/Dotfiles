@@ -1,43 +1,78 @@
 {
-    "modules-left": ["custom/power", "hyprland/workspaces"],
-    // "modules-center": [],
-    "modules-right": ["tray", "bluetooth", "network", "battery", "pulseaudio", "clock"],
-
+    "layer": "top",
+    "position": "top",
+    "height": 38,
+    "margin-top": 8,
+    "margin-left": 10,
+    "margin-right": 10,
+    "modules-left": [
+        "custom/power",
+        "group/workspaces",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "tray",
+        "bluetooth",
+        "network",
+        "cpu",
+        "memory",
+        "battery",
+        "pulseaudio"
+    ],
     "custom/power": {
-        "format" : "⭘ ",
+        "format": "⭘ ",
         "tooltip": false,
-        "on-click": "wlogout -b 5",
+        "on-click": "wlogout -b 5"
     },
-
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
         "warp-on-scroll": false,
         "format": "{name}",
-        "cursor": true,
+        "persistent-workspaces": {
+            "*": 5
+        },
+        "cursor": true
     },
-
+    "hyprland/window": {
+        "format": "<span color='#cba6f7' weight='bold' size='x-large'></span> <span rise='3000'>{title}</span>",
+        "max-length": 50,
+        "separate-outputs": false
+    },
     "tray": {
         "icon-size": 20,
         "spacing": 10,
-        "cursor": true,
+        "cursor": true
     },
-
     "bluetooth": {
         "format": " 󰂯 ",
         "format-disabled": " 󰂲 ",
         "format-connected": " 󰂱 ",
-        "on-click": "blueman-manager",
+        "on-click": "blueman-manager"
     },
-
     "network": {
         "format-wifi": "  {essid}",
         "format-ethernet": "  Ethernet",
         "format-linked": "  Linked (No IP)",
         "format-disconnected": "  Disconnected",
-        "tooltip": false,
+        "tooltip": false
     },
-
+    "cpu": {
+        "interval": 5,
+        "format": " {usage}%",
+        "states": {
+            "high": 80
+        },
+        "tooltip": true
+    },
+    "memory": {
+        "interval": 5,
+        "format": " {used:0.1f}G",
+        "tooltip-format": "RAM: {used:0.1f}G / {total:0.1f}G\nSwap: {swapUsed:0.1f}G"
+    },
     "battery": {
         "states": {
             "good": 85,
@@ -49,11 +84,15 @@
         "format-plugged": " {capacity}%",
         "format-charging": " {capacity}%",
         "format-alt": "{icon} {capacity}%",
-        "format-icons": [" ", " ", " ", " ", " "],
-        "tooltip-format": "{time}",
-        "cursor": false,
+        "format-icons": [
+            " ",
+            " ",
+            " ",
+            " ",
+            " "
+        ],
+        "tooltip-format": "{time}"
     },
-
     "pulseaudio": {
         "format": "{icon} {volume}%",
         "format-muted": "  {volume}%",
@@ -62,11 +101,12 @@
         "format-icons": {
             "headphone": " ",
             "headset": " ",
-            "default": [" "],
+            "default": [
+                " "
+            ]
         },
-        "on-click": "pavucontrol",
+        "on-click": "pavucontrol"
     },
-
     "clock": {
         "format": "{:%a %d/%m/%Y ~ %H:%M}",
         "tooltip-format": "<span size='15000'><tt>{calendar}</tt></span>",
@@ -76,9 +116,59 @@
                 "months": "<span color='#F5C2E7'><b>{}</b></span>",
                 "weekdays": "<span color='#89B4FA'><b>{}</b></span>",
                 "days": "<span color='#CDD6F4'><b>{}</b></span>",
-                "today": "<span color='#F9E2AF'><b>{}</b></span>",
+                "today": "<span color='#F9E2AF'><b>{}</b></span>"
             }
         },
-        "on-click": "swaync-client -t -sw",
+        "on-click": "swaync-client -t -sw"
+    },
+    "group/workspaces": {
+        "orientation": "inherit",
+        "modules": [
+            "custom/workspace-1",
+            "custom/workspace-2",
+            "custom/workspace-3",
+            "custom/workspace-4",
+            "custom/workspace-5"
+        ]
+    },
+    "custom/workspace-1": {
+        "exec": "python3 -u $HOME/.config/waybar/hypr-workspace.py 1",
+        "return-type": "json",
+        "format": "{}",
+        "restart-interval": 2,
+        "on-click": "$HOME/.config/hypr/switch_workspace.sh switch 1",
+        "cursor": true
+    },
+    "custom/workspace-2": {
+        "exec": "python3 -u $HOME/.config/waybar/hypr-workspace.py 2",
+        "return-type": "json",
+        "format": "{}",
+        "restart-interval": 2,
+        "on-click": "$HOME/.config/hypr/switch_workspace.sh switch 2",
+        "cursor": true
+    },
+    "custom/workspace-3": {
+        "exec": "python3 -u $HOME/.config/waybar/hypr-workspace.py 3",
+        "return-type": "json",
+        "format": "{}",
+        "restart-interval": 2,
+        "on-click": "$HOME/.config/hypr/switch_workspace.sh switch 3",
+        "cursor": true
+    },
+    "custom/workspace-4": {
+        "exec": "python3 -u $HOME/.config/waybar/hypr-workspace.py 4",
+        "return-type": "json",
+        "format": "{}",
+        "restart-interval": 2,
+        "on-click": "$HOME/.config/hypr/switch_workspace.sh switch 4",
+        "cursor": true
+    },
+    "custom/workspace-5": {
+        "exec": "python3 -u $HOME/.config/waybar/hypr-workspace.py 5",
+        "return-type": "json",
+        "format": "{}",
+        "restart-interval": 2,
+        "on-click": "$HOME/.config/hypr/switch_workspace.sh switch 5",
+        "cursor": true
     }
 }

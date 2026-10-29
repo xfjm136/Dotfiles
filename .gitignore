@@ -1,0 +1,8 @@
+.config/private/*.env
+!.config/private/*.env.example
+
+# Local migration backups and generated Python files
+backup-*/
+__pycache__/
+*.pyc
+*.before-isolation
